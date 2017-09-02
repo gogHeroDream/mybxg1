@@ -1,4 +1,4 @@
-define(['jquery','cookie'],function($){
+define(['jquery','template','cookie'],function($,template){
 	//NProgress.start();
 	//NProgress.done();
 	//控制左侧菜单折叠
@@ -19,7 +19,7 @@ define(['jquery','cookie'],function($){
 			}
 		});
 	});
-	//验证是否登录
+	//验证是否登录过
 	 //session的ID
 	var sessionId= $.cookie('PHPSESSID');
 	if(!sessionId&&location.pathname!='/main/login'){
@@ -28,10 +28,14 @@ define(['jquery','cookie'],function($){
 	//获取登录信息
 	var loginInfo= $.cookie('loginInfo');
 	var info=JSON.parse(loginInfo);
-	//根据cookie的值来设置主页面人物的属性
-	console.log(info);
-	$(".profile h4").html(info.tc_name);
-	$(".profile img").attr("src",info.tc_avatar);
+    //根据cookie的值来设置主页面人物的属性  模板引擎
+	var tplstr='<div class="avatar img-circle"> <img src="{{tc_avatar}}"> </div> <h4>{{tc_name}}</h4>';
+	var html=template.render(tplstr,info);
+	$(".aside .profile").html(html);
+
+	//console.log(info);
+	//$(".profile h4").html(info.tc_name);
+	//$(".profile img").attr("src",info.tc_avatar);
 })
 
 
