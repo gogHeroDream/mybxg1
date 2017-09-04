@@ -14,9 +14,10 @@ define(['jquery','cookie'],function($){
                     //先保存cookie
                     $.cookie('loginInfo',JSON.stringify(data.result),{path:"/"});
                     location.href="/main/index";
-                }else{
-                    alert("用户名或密码错误！");
                 }
+            },
+            error:function(){
+                alert("用户名或密码错误！");
             }
         })
         return false;
