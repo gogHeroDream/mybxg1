@@ -10,7 +10,9 @@ require.config({
         login:"../js/login",
         template:"artTemplate/template-web",
         teacherList:"../js/teacherList",
-        bootstrap:"./bootstrap/js/bootstrap"
+        bootstrap:"./bootstrap/js/bootstrap",
+        index:"../js/index",
+        util:"../js/util"
     },
     shim:{
         bootstrap:{
