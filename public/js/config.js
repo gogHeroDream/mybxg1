@@ -16,7 +16,8 @@ require.config({
         teacheradd:"../js/teacherAdd",
         datepicker:"./bootstrap-datepicker/js/bootstrap-datepicker",
         language:"./bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
-        validate:'validate/jquery-validate.min'
+        validate:'validate/jquery-validate.min',
+        form:"jquery-form/jquery.form"
     },
     shim:{
         bootstrap:{
